@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div class="container">
+        <form method=”GET”>
+            <h1>Calculator</h1>
+            Primeiro Número:<br /> <input type="text" name="n1" id="n1"> <br /><br />
+            Segundo Número:<br /> <input type="text" name="n2" id="n2">
+            <br><br>
+
+            <select name="operaoes" id="oper">
+                <option value="choice">--Operações--</option>
+                <option value="-">Somar</option>
+                <option value="*">Subtrair</option>
+                <option value="/">Multiplicar</option>
+                <option value="/">Dividir</option>
+            </select><br /><br />
+
+            <button onclick="somar()">+</button>
+            <button onclick="sub()">-</button>
+            <button onclick="mult()">*</button>
+            <button onclick="div()">/</button>
+            <br /> <br />
+
+            Resultado: <span></span> <br />
+
+            <script>
+                var n1 = document.querySelector('#n1')
+                var n2 = document.querySelector('#n2')
+                var resultado = document.querySelector('span')
+
+                function somar() {
+                    resultado.innerHTML = parseInt(n1.value) + parseInt(n2.value)
+                }
+                function sub() {
+                    resultado.innerHTML = parseInt(n1.value) - parseInt(n2.value)
+                }
+                function mult() {
+                    resultado.innerHTML = parseInt(n1.value) * parseInt(n2.value)
+                }
+                function div() {
+                    resultado.innerHTML = parseInt(n1.value) / parseInt(n2.value)
+                }
+
+                console.log(resuldado)
+
+            </script>
+        </form>
+    </div>
+</body>
+
+</html>
