@@ -4,8 +4,7 @@ public class Estudante {
 
   public static void main(String[] args) {
     System.out.println(
-      "Seleção de bolsistas para disciplina de " + "Engenharia de Energias!\n"
-    );
+        "Seleção de bolsistas para disciplina de " + "Engenharia de Energias!\n");
 
     Scanner dados;
     EstudanteGraduacao estudante = new EstudanteGraduacao();
@@ -27,8 +26,7 @@ public class Estudante {
     estudante.endereco = dados.next();
 
     System.out.println(
-      "Renda familiar do(a) estudante (use virgulas com duas casas decimais)"
-    );
+        "Renda familiar do(a) estudante (use virgulas com duas casas decimais)");
     dados = new Scanner(System.in);
     estudante.renda_familiar = dados.nextFloat();
 
@@ -45,17 +43,15 @@ public class Estudante {
     estudante.carga_horaria = dados.nextFloat();
 
     System.out.println(
-      "Você está matriculado em todas as diciplinas?\n digite (true) para sim, ou (false) para não"
-    );
+        "Você está matriculado em todas as diciplinas?\n digite (true) para sim, ou (false) para não");
     dados = new Scanner(System.in);
     estudante.status = dados.nextBoolean();
 
     System.out.println(
-      "Qual programa de incetivo ira participar? Digite o numero da opcao\n" +
-      "1 - Bolsista \n" +
-      "2 - Auxilio Alimentação \n" +
-      "3 - Auxilio Transporte \n"
-    );
+        "Qual programa de incetivo ira participar? Digite o numero da opcao\n" +
+            "1 - Bolsista \n" +
+            "2 - Auxilio Alimentação \n" +
+            "3 - Auxilio Transporte \n");
     dados = new Scanner(System.in);
     estudante.escolha = dados.nextInt();
     estudante.Selecao();

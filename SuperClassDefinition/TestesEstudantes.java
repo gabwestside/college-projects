@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class TestesEstudantes {
     float[] ides = new float[5];
     boolean candidato = true;
-    Scanner dados;
+    Scanner dados, cidade;
 
     void concorrentes() {
         if (candidato) {
@@ -82,16 +82,25 @@ public class TestesEstudantes {
     }
 
     public void AuxilioTransporte(EstudanteGraduacao estudante) {
-        if (estudante.endereco != "Redenção" && estudante.endereco != "Acarape") {
-            if (estudante.renda_familiar < 1497.00) {
+        System.out.println("Você é de Redenção/Acarape?");
+        cidade = new Scanner(System.in);
+        estudante.municipio = cidade.next();
+
+        if (estudante.municipio == "Não" || estudante.municipio == "nao" || estudante.municipio == "não") {
+            System.out.println("Você não faz parte de");
+            if (estudante.renda_familiar <= 1497.00) {
                 System.out.println("Quantas disciplinas está cursando?");
                 dados = new Scanner(System.in);
                 estudante.qtd_disciplinas = dados.nextInt();
                 if (estudante.qtd_disciplinas >= 4) {
-                    System.out.println("Parabéns, você foi selecionado para o Auxilio Transporte");
+                    System.out.println("Parabéns, você foi selecionado para o Auxilio Transporte!");
+                } else {
+                    System.out.println("Você precisa está matriculado em pelo menos 4 cadeiras!");
                 }
+            } else {
+                System.out.println("Sua renda é maior que 1,5(um salario e meio)");
             }
-        } else if (estudante.endereco == "Redenção" || estudante.endereco == "Acarape") {
+        } else {
             System.out.println(
                     "Só poderá participar o Auxilio Transporte, alunos que residem fora do campus da UNILAB (Acarape e Redenção)");
         }

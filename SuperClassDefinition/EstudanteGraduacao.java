@@ -1,5 +1,5 @@
 public class EstudanteGraduacao {
-  public String nome, endereco, curso, atividade, CPF;
+  public String nome, endereco, curso, atividade, CPF, municipio;
   public int matricula, qtd_disciplinas, escolha;
   public float ide, renda_familiar, carga_horaria;
   public boolean status = true, bolsista = false;

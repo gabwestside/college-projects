@@ -1,19 +1,20 @@
 import java.util.Random;
 import java.util.Scanner;
+
 public class SimuladorDeSelecao {
 	
-	//informações para a seleção
+	//informaï¿½ï¿½es para a seleï¿½ï¿½o
 	float[] notas = new float[8];// vetor que guarda as notas dos concorrentes
 	float[] ides = new float [8];//vetor que guarda os ide's dos concorrentes
 	boolean candidato = true;//ainda pode ser candidato?? ao longo das selecoes esse boolean pode se tornar false
 	
-	//primeira etapa da seleção
+	//primeira etapa da seleï¿½ï¿½o
 	void selecao1(Estudante estudante) {
-		if(estudante.semestre == 1){//não pode estar no primeiro semestre
+		if(estudante.semestre == 1){//nï¿½o pode estar no primeiro semestre
 			System.out.println("nao podem participar da selecao alunos do primeiro semestre");
 			candidato = false;
 		}
-/*			else if(estudante.reprovacao == "s"){//não pode ter reprovado em qualquer disciplina
+/*			else if(estudante.reprovacao == "s"){//nï¿½o pode ter reprovado em qualquer disciplina
 				System.out.println("Desclassificado");
 				candidato = false;
 			}
@@ -80,7 +81,7 @@ public class SimuladorDeSelecao {
 			notas[3] = estudante5.nota_da_disciplina;
 		}
 	}
-	//segunda etapa da seleção
+	//segunda etapa da seleï¿½ï¿½o
 	void selecao2(Estudante estudante) {
 		if(estudante.n_vagas == 1) {
 			for(int i=0; i<8; i++) {
@@ -115,7 +116,7 @@ public class SimuladorDeSelecao {
 					}
 				}//fim do for
 			
-			if(sel < 2) {//se houver no máximo um concorrente a frente
+			if(sel < 2) {//se houver no mï¿½ximo um concorrente a frente
 			System.out.println("\nSelecionado(a)! para 1 de 2 vaga(s)");
 			estudante.bolsista = true;//candidato bolsista!
 			}
