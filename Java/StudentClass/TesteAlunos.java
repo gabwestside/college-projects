@@ -77,9 +77,6 @@ public class TesteAlunos {
 
       // list.add(new AlunoGrad(Nome, Endereco, Curso, CPF, Municipio));
     }
-  
-      
-
       numeroArray.close();
       dados.close();
 

@@ -6,7 +6,7 @@ public class TestesEstudantes {
     boolean candidato = true;
     Scanner dados, cidade;
 
-    void concorrentes() {
+    public void concorrentes() {
         if (candidato) {
             Random dados = new Random();
             EstudanteGraduacao estudante1 = new EstudanteGraduacao();
@@ -50,7 +50,7 @@ public class TestesEstudantes {
         if (estudante.status == true) {
             for (int i = 0; i < 5; i++) {
                 if (estudante.ide < ides[i]) {
-                    System.out.println("Nao foi selecionado(a)");
+                    System.out.println("Nao foi selecionado(a)" + ides[i]);
                     break;
                 } else {
                     System.out.println("Você foi selecionado(a)");
