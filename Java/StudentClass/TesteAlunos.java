@@ -14,22 +14,27 @@ public class TesteAlunos {
     System.out.print("Entre com o numero de alunos a serem cadastrados: ");
     Scanner numeroArray = new Scanner(System.in);
     int n = numeroArray.nextInt();
-    
+
     for (int i = 0; i < n; i++) {
+      System.out.println("Digite os dados do(a) estudante");
+
       System.out.println("Nome e/ou nome social do(a) estudante");
       String nome = dados.next();
 
-      System.out.println("Endereço do(a) estudante");
-      String endereco = dados.next();
+      System.out.println("Matricula do(a) estudante");
+      int matricula = dados.nextInt();
 
       System.out.println("CPF do(a) estudante");
       String cpf = dados.next();
+
+      // System.out.println("Endereço do(a) estudante");
+      // String endereco = dados.next();
 
       System.out.println("Municipio do(a) estudante");
       String municipio = dados.next();
 
       System.out.println(
-        "Renda familiar do(a) estudante (use virgulas com duas casas decimais)");
+          "Renda familiar do(a) estudante (use virgulas com duas casas decimais)");
       dados = new Scanner(System.in);
       float rendaFamiliar = dados.nextFloat();
 
@@ -45,7 +50,7 @@ public class TesteAlunos {
       float cargaHoraria = dados.nextFloat();
 
       System.out.println(
-          "Você está matriculado em todas as diciplinas?\n digite (true) para sim, ou (false) para não");
+          "Você está matriculado em todas as diciplinas neste semestre?\n digite (true) para sim, ou (false) para não");
       dados = new Scanner(System.in);
       boolean status = dados.nextBoolean();
 
@@ -56,36 +61,18 @@ public class TesteAlunos {
               "3 - Auxilio Transporte \n");
       dados = new Scanner(System.in);
       int escolha = dados.nextInt();
-      // estudante.Selecao();
 
-      System.out.println("\n");
-      // estudante.Info();
-      System.out.println("\n");
-      System.out.println("Resultado da seleção:");
-      // TestesEstudantes selec = new TestesEstudantes();
-      // selec.concorrentes();
-
-      // if (estudante.escolha == 1) {
-      //   selec.selecaoIDE(estudante);
-      // } else if (estudante.escolha == 2) {
-      //   selec.AuxilioAlimentacao(estudante);
-      // } else if (estudante.escolha == 3) {
-      //   selec.AuxilioTransporte(estudante);
-      // } else {
-      //   System.out.println("Opção não encontrada. Tente novamente");
-      // }
-
-      // list.add(new AlunoGrad(Nome, Endereco, Curso, CPF, Municipio));
+      list.add(
+          new AlunoGrad(nome, matricula, cpf, municipio, rendaFamiliar, curso, ide, cargaHoraria, status, escolha));
     }
-      numeroArray.close();
-      dados.close();
+    numeroArray.close();
+    dados.close();
 
-    for(Aluno aluno:list){
-        System.out.println("\nNome: " + aluno.getNome()
-            + "\nEndereço: " + aluno.getEndereco()
-            + "\nCurso: " + aluno.getCurso()
-            + "\nCPF: " + aluno.getCPF()
-            + "\nMunicipio: " + aluno.getMunicipio());
-      }
+    for (Aluno aluno : list) {
+      System.out.println("\nNome: " + aluno.getNome()
+          + "\nCurso: " + aluno.getCurso()
+          + "\nCPF: " + aluno.getCPF()
+          + "\nMunicipio: " + aluno.getMunicipio());
+    }
   }
 }

@@ -1,81 +1,63 @@
 public abstract class Aluno {
-  private String Nome, Endereco, Curso, CPF, Municipio;
-  private int Matricula, QTD_Disciplinas, Escolha;
-  private float Ide, Renda_Familiar, Carga_Horaria;
-  private boolean status = true, bolsista = false;
+  private String nome, curso, cpf, municipio;
+  private int matricula, escolha;
+  private float ide, rendaFamiliar, cargaHoraria;
+  private boolean status = true;
 
-  // public Aluno(String nome, String endereco, String curso, String cpf, String municipio,
-  //   int matricula, int qtd_disciplinas, int escolha,
-  //   float ide, float renda_familiar) {
-  //   setNome(nome);
-  //   setEndereco(endereco);
-  //   setCurso(curso);
-  //   setCPF(cpf);
-  //   setMunicipio(municipio);
-  // }
-
-  public Aluno(String Nome, String Endereco, String Curso, String CPF, String Municipio, int Matricula, int QTD_Disciplinas, int Escolha, float Ide, float Renda_Familiar, float Carga_Horaria, boolean status, boolean bolsista) {
-    this.Nome = Nome;
-    this.Endereco = Endereco;
-    this.Curso = Curso;
-    this.CPF = CPF;
-    this.Municipio = Municipio;
-    this.Matricula = Matricula;
-    this.QTD_Disciplinas = QTD_Disciplinas;
-    this.Escolha = Escolha;
-    this.Ide = Ide;
-    this.Renda_Familiar = Renda_Familiar;
-    this.Carga_Horaria = Carga_Horaria;
+  public Aluno(String nome, String curso,
+      String cpf, String municipio, int matricula,
+      int escolha, float ide, float rendaFamiliar, float cargaHoraria,
+      boolean status) {
+    this.nome = nome;
+    this.curso = curso;
+    this.cpf = cpf;
+    this.municipio = municipio;
+    this.matricula = matricula;
+    this.escolha = escolha;
+    this.ide = ide;
+    this.rendaFamiliar = rendaFamiliar;
+    this.cargaHoraria = cargaHoraria;
     this.status = status;
-    this.bolsista = bolsista;
   }
 
   public int getMatricula() {
-    return this.Matricula;
+    return this.matricula;
   }
 
-  public void setMatricula(int Matricula) {
-    this.Matricula = Matricula;
-  }
-
-  public int getQTD_Disciplinas() {
-    return this.QTD_Disciplinas;
-  }
-
-  public void setQTD_Disciplinas(int QTD_Disciplinas) {
-    this.QTD_Disciplinas = QTD_Disciplinas;
+  public void setMatricula(int matricula) {
+    this.matricula = matricula;
   }
 
   public int getEscolha() {
-    return this.Escolha;
+    return this.escolha;
   }
 
-  public void setEscolha(int Escolha) {
-    this.Escolha = Escolha;
+  public void setEscolha(int escolha) {
+    this.escolha = escolha;
   }
 
   public float getIde() {
-    return this.Ide;
+    return this.ide;
   }
 
-  public void setIde(float Ide) {
-    this.Ide = Ide;
+  public void setIde(float ide) {
+    this.ide = ide;
   }
 
-  public float getRenda_Familiar() {
-    return this.Renda_Familiar;
+  public float getRendaFamiliar() {
+    return this.rendaFamiliar;
   }
 
-  public void setRenda_Familiar(float Renda_Familiar) {
-    this.Renda_Familiar = Renda_Familiar;
+  public void setRendaFamiliar(float rendaFamiliar) {
+    this.rendaFamiliar = rendaFamiliar;
   }
 
-  public float getCarga_Horaria() {
-    return this.Carga_Horaria;
+  public float getCargaHoraria() {
+    return this.cargaHoraria;
   }
 
-  public void setCarga_Horaria(float Carga_Horaria) {
-    this.Carga_Horaria = Carga_Horaria;
+  public void setCargaHoraria(float cargaHoraria) {
+    this.cargaHoraria = cargaHoraria;
   }
 
   public boolean isStatus() {
@@ -90,75 +72,52 @@ public abstract class Aluno {
     this.status = status;
   }
 
-  public boolean isBolsista() {
-    return this.bolsista;
-  }
-
-  public boolean getBolsista() {
-    return this.bolsista;
-  }
-
-  public void setBolsista(boolean bolsista) {
-    this.bolsista = bolsista;
-  }
-
   public void setNome(String nome) {
-    Nome = nome;
+    this.nome = nome;
   }
 
   public String getNome() {
-    return Nome;
-  }
-
-  public void setEndereco(String endereco) {
-    Endereco = endereco;
-  }
-
-  public String getEndereco() {
-    return Endereco;
+    return nome;
   }
 
   public void setCurso(String curso) {
-    Curso = curso;
+    this.curso = curso;
   }
 
   public String getCurso() {
-    return Curso;
+    return curso;
   }
 
   public void setCPF(String cpf) {
-    CPF = cpf;
+    this.cpf = cpf;
   }
 
   public String getCPF() {
-    return CPF;
+    return cpf;
   }
 
   public void setMunicipio(String municipio) {
-    Municipio = municipio;
+    this.municipio = municipio;
   }
 
   public String getMunicipio() {
-    return Municipio;
+    return municipio;
   }
 
   @Override
   public String toString() {
     return "{" +
-      " Nome='" + getNome() + "'" +
-      ", Endereco='" + getEndereco() + "'" +
-      ", Curso='" + getCurso() + "'" +
-      ", CPF='" + getCPF() + "'" +
-      ", Municipio='" + getMunicipio() + "'" +
-      ", Matricula='" + getMatricula() + "'" +
-      ", QTD_Disciplinas='" + getQTD_Disciplinas() + "'" +
-      ", Escolha='" + getEscolha() + "'" +
-      ", Ide='" + getIde() + "'" +
-      ", Renda_Familiar='" + getRenda_Familiar() + "'" +
-      ", Carga_Horaria='" + getCarga_Horaria() + "'" +
-      ", status='" + isStatus() + "'" +
-      ", bolsista='" + isBolsista() + "'" +
-      "}";
+        " Nome='" + getNome() + "'" +
+        ", Curso='" + getCurso() + "'" +
+        ", CPF='" + getCPF() + "'" +
+        ", Municipio='" + getMunicipio() + "'" +
+        ", Matricula='" + getMatricula() + "'" +
+        ", Escolha='" + getEscolha() + "'" +
+        ", Ide='" + getIde() + "'" +
+        ", Renda_Familiar='" + getRendaFamiliar() + "'" +
+        ", Carga_Horaria='" + getCargaHoraria() + "'" +
+        ", status='" + isStatus() + "'" +
+        "}";
   }
 
   public abstract void SelecaoIDE();

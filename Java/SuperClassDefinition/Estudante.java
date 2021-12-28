@@ -4,7 +4,7 @@ public class Estudante {
 
   public static void main(String[] args) {
     System.out.println(
-        "Seleção de bolsistas para disciplina de " + "Engenharia de Energias!\n");
+        "Seleção de bolsistas para disciplina de Engenharia de Energias!\n");
 
     Scanner dados;
     EstudanteGraduacao estudante = new EstudanteGraduacao();
