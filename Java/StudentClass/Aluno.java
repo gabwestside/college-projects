@@ -1,30 +1,105 @@
 public abstract class Aluno {
-  public String Nome, Endereco, Curso, CPF, Municipio;
-  // public int Matricula, QTD_Disciplinas, Escolha;
-  // public float Ide, Renda_Familiar, Carga_Horaria;
+  private String Nome, Endereco, Curso, CPF, Municipio;
+  private int Matricula, QTD_Disciplinas, Escolha;
+  private float Ide, Renda_Familiar, Carga_Horaria;
+  private boolean status = true, bolsista = false;
 
-  // public Aluno(String nome, String endereco, String curso, String CPF, String municipio,
-  //     int matricula, int qtd_disciplinas, int escolha,
-  //     float ide, float renda_familiar, float carga_horaria) {
+  // public Aluno(String nome, String endereco, String curso, String cpf, String municipio,
+  //   int matricula, int qtd_disciplinas, int escolha,
+  //   float ide, float renda_familiar) {
   //   setNome(nome);
   //   setEndereco(endereco);
   //   setCurso(curso);
-  //   setCPF(CPF);
+  //   setCPF(cpf);
   //   setMunicipio(municipio);
-  //   // setMatricula( matricula );
-  //   // setQtdMatricula( qtd_disciplinas );
-  //   // setEscolha( escolha );
-  //   // setIde( ide );
-  //   // setRendaFamiliar( renda_familiar );
-  //   // setCargaHoraria( carga_horaria );
   // }
-  
-  public Aluno(String nome, String endereco, String curso, String cpf, String municipio) {
-    setNome(nome);
-    setEndereco(endereco);
-    setCurso(curso);
-    setCPF(cpf);
-    setMunicipio(municipio);
+
+  public Aluno(String Nome, String Endereco, String Curso, String CPF, String Municipio, int Matricula, int QTD_Disciplinas, int Escolha, float Ide, float Renda_Familiar, float Carga_Horaria, boolean status, boolean bolsista) {
+    this.Nome = Nome;
+    this.Endereco = Endereco;
+    this.Curso = Curso;
+    this.CPF = CPF;
+    this.Municipio = Municipio;
+    this.Matricula = Matricula;
+    this.QTD_Disciplinas = QTD_Disciplinas;
+    this.Escolha = Escolha;
+    this.Ide = Ide;
+    this.Renda_Familiar = Renda_Familiar;
+    this.Carga_Horaria = Carga_Horaria;
+    this.status = status;
+    this.bolsista = bolsista;
+  }
+
+  public int getMatricula() {
+    return this.Matricula;
+  }
+
+  public void setMatricula(int Matricula) {
+    this.Matricula = Matricula;
+  }
+
+  public int getQTD_Disciplinas() {
+    return this.QTD_Disciplinas;
+  }
+
+  public void setQTD_Disciplinas(int QTD_Disciplinas) {
+    this.QTD_Disciplinas = QTD_Disciplinas;
+  }
+
+  public int getEscolha() {
+    return this.Escolha;
+  }
+
+  public void setEscolha(int Escolha) {
+    this.Escolha = Escolha;
+  }
+
+  public float getIde() {
+    return this.Ide;
+  }
+
+  public void setIde(float Ide) {
+    this.Ide = Ide;
+  }
+
+  public float getRenda_Familiar() {
+    return this.Renda_Familiar;
+  }
+
+  public void setRenda_Familiar(float Renda_Familiar) {
+    this.Renda_Familiar = Renda_Familiar;
+  }
+
+  public float getCarga_Horaria() {
+    return this.Carga_Horaria;
+  }
+
+  public void setCarga_Horaria(float Carga_Horaria) {
+    this.Carga_Horaria = Carga_Horaria;
+  }
+
+  public boolean isStatus() {
+    return this.status;
+  }
+
+  public boolean getStatus() {
+    return this.status;
+  }
+
+  public void setStatus(boolean status) {
+    this.status = status;
+  }
+
+  public boolean isBolsista() {
+    return this.bolsista;
+  }
+
+  public boolean getBolsista() {
+    return this.bolsista;
+  }
+
+  public void setBolsista(boolean bolsista) {
+    this.bolsista = bolsista;
   }
 
   public void setNome(String nome) {
@@ -67,32 +142,28 @@ public abstract class Aluno {
     return Municipio;
   }
 
-  // public void Selecao() {
-  //   switch (Escolha) {
-  //     case 1:
-  //       System.out.println("Bolsista");
-  //       break;
-  //     case 2:
-  //       System.out.println("Auxilio Alimentação");
-  //       break;
-  //     case 3:
-  //       System.out.println("Auxilio Transporte");
-  //       break;
-  //     default:
-  //       System.out.println("Opção não encontrada. Tente novamente");
-  //       break;
-  //   }
-  // }
+  @Override
+  public String toString() {
+    return "{" +
+      " Nome='" + getNome() + "'" +
+      ", Endereco='" + getEndereco() + "'" +
+      ", Curso='" + getCurso() + "'" +
+      ", CPF='" + getCPF() + "'" +
+      ", Municipio='" + getMunicipio() + "'" +
+      ", Matricula='" + getMatricula() + "'" +
+      ", QTD_Disciplinas='" + getQTD_Disciplinas() + "'" +
+      ", Escolha='" + getEscolha() + "'" +
+      ", Ide='" + getIde() + "'" +
+      ", Renda_Familiar='" + getRenda_Familiar() + "'" +
+      ", Carga_Horaria='" + getCarga_Horaria() + "'" +
+      ", status='" + isStatus() + "'" +
+      ", bolsista='" + isBolsista() + "'" +
+      "}";
+  }
 
-  // public void Info() {
-  //   System.out.println("Nome do estudante: " + nome);
-  //   System.out.println("Matricula: " + matricula);
-  //   System.out.println("O CPF: " + CPF);
-  //   System.out.println("Endereço: " + endereco);
-  //   System.out.println("Renda familiar: " + renda_familiar);
-  //   System.out.println("Curso: " + curso);
-  //   System.out.println("Indice de Desenvolvimento do Estudante (IDE):" + ide);
+  public abstract void SelecaoIDE();
 
-  //   System.out.println("Carga horaria: " + carga_horaria);
-  // }
+  public abstract void AuxilioAlimentacao();
+
+  public abstract void AuxilioTransporte();
 }
