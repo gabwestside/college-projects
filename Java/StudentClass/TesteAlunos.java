@@ -18,7 +18,7 @@ public class TesteAlunos {
     for (int i = 0; i < n; i++) {
       System.out.println("Digite os dados do(a) estudante");
 
-      System.out.println("Nome e/ou nome social do(a) estudante");
+      System.out.println("Nome e/ou nome social do(a) estudante (somente o primeiro nome)");
       String nome = dados.next();
 
       System.out.println("Matricula do(a) estudante");
@@ -26,9 +26,6 @@ public class TesteAlunos {
 
       System.out.println("CPF do(a) estudante");
       String cpf = dados.next();
-
-      // System.out.println("Endereço do(a) estudante");
-      // String endereco = dados.next();
 
       System.out.println("Municipio do(a) estudante");
       String municipio = dados.next();
@@ -69,10 +66,19 @@ public class TesteAlunos {
     dados.close();
 
     for (Aluno aluno : list) {
-      System.out.println("\nNome: " + aluno.getNome()
-          + "\nCurso: " + aluno.getCurso()
-          + "\nCPF: " + aluno.getCPF()
-          + "\nMunicipio: " + aluno.getMunicipio());
+      System.out.println(
+          "\nNome: " + aluno.getNome()
+              + "\nMatricula: " + aluno.getMatricula()
+              + "\nCPF: " + aluno.getCPF()
+              + "\nMunicipio: " + aluno.getMunicipio()
+              + "\nRenda Familiar: " + aluno.getRendaFamiliar()
+              + "\nCurso: " + aluno.getCurso()
+              + "\nIndice de Desenvolvimento do Estudante (IDE): " + aluno.getIde());
+      if (aluno.getStatus() == true) {
+        System.out.println("Matriculado em todas as cadeiras do semestre");
+      } else {
+        System.out.println("Não matriculado em todas as cadeiras do semestre");
+      }
     }
   }
 }

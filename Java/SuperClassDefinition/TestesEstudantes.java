@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class TestesEstudantes {
     float[] ides = new float[5];
     boolean candidato = true;
-    Scanner dados, cidade;
+    Scanner dados;
 
     public void concorrentes() {
         if (candidato) {
@@ -82,12 +82,7 @@ public class TestesEstudantes {
     }
 
     public void AuxilioTransporte(EstudanteGraduacao estudante) {
-        System.out.println("Você é de Redenção/Acarape?");
-        cidade = new Scanner(System.in);
-        estudante.municipio = cidade.next();
-
-        if (estudante.municipio == "Não" || estudante.municipio == "nao" || estudante.municipio == "não") {
-            System.out.println("Você não faz parte de");
+        if (estudante.municipio != "Redencao" || estudante.municipio != "Acarape") {
             if (estudante.renda_familiar <= 1497.00) {
                 System.out.println("Quantas disciplinas está cursando?");
                 dados = new Scanner(System.in);
