@@ -4,6 +4,10 @@ public abstract class Aluno {
   private float ide, rendaFamiliar, cargaHoraria;
   private boolean status = true;
 
+
+  public Aluno() {
+  }
+
   public Aluno(String nome, String curso,
       String cpf, String municipio, int matricula,
       int escolha, float ide, float rendaFamiliar, float cargaHoraria,

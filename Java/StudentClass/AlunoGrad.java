@@ -1,11 +1,15 @@
 import java.util.Scanner;
-// import java.util.Random;
+import java.util.Random;
 
 public class AlunoGrad extends Aluno {
     private float[] ides = new float[5];
-    int qtdDisciplinas;
-    boolean candidato = true;
+    private int qtdDisciplinas;
+    private double salarioMinimo = 1192.40;
+    private boolean candidato = true;
     Scanner dados, cidade;
+
+    public AlunoGrad() {
+    }
 
     public AlunoGrad(String nome, int matricula, String cpf, String municipio, float rendaFamiliar, String curso,
             float ide, float cargaHoraria,
@@ -41,45 +45,45 @@ public class AlunoGrad extends Aluno {
         this.qtdDisciplinas = qtdDisciplinas;
     }
 
-    // public void concorrentes() {
-    // if (candidato) {
-    // Random dados = new Random();
-    // EstudanteGraduacao estudante1 = new EstudanteGraduacao();
+    public void Concorrentes() {
+        if (candidato) {
+            Random dados = new Random();
+            AlunoGrad aluno1 = new AlunoGrad();
 
-    // estudante1.ide = dados.next3);
-    // estudante1.ide += 7;
-    // estudante1.ide += dados.nextFloat();
-    // ides[0] = estudante1.ide;
+            aluno1.setIde(dados.nextInt(3));
+            aluno1.setIde(aluno1.getIde() + 7);
+            aluno1.setIde(dados.nextFloat());
+            ides[0] = aluno1.getIde();
 
-    // EstudanteGraduacao estudante2 = new EstudanteGraduacao();
+            AlunoGrad aluno2 = new AlunoGrad();
 
-    // estudante2.ide = dados.nextInt(3);
-    // estudante2.ide += 7;
-    // estudante2.ide += dados.nextFloat();
-    // ides[1] = estudante2.ide;
+            aluno2.setIde(dados.nextInt(3));
+            aluno2.setIde(aluno2.getIde() + 7);
+            aluno2.setIde(dados.nextFloat());
+            ides[1] = aluno2.getIde();
 
-    // EstudanteGraduacao estudante3 = new EstudanteGraduacao();
+            AlunoGrad aluno3 = new AlunoGrad();
 
-    // estudante3.ide = dados.nextInt(3);
-    // estudante3.ide += 7;
-    // estudante3.ide += dados.nextFloat();
-    // ides[2] = estudante3.ide;
+            aluno3.setIde(dados.nextInt(3));
+            aluno3.setIde(aluno3.getIde() + 7);
+            aluno3.setIde(dados.nextFloat());
+            ides[2] = aluno3.getIde();
 
-    // EstudanteGraduacao estudante4 = new EstudanteGraduacao();
+            AlunoGrad aluno4 = new AlunoGrad();
 
-    // estudante4.ide = dados.nextInt(3);
-    // estudante4.ide += 6.5;
-    // estudante4.ide += dados.nextFloat();
-    // ides[3] = estudante4.ide;
+            aluno4.setIde(dados.nextInt(3));
+            aluno4.setIde(aluno4.getIde() + 7);
+            aluno4.setIde(dados.nextFloat());
+            ides[3] = aluno4.getIde();
 
-    // EstudanteGraduacao estudante5 = new EstudanteGraduacao();
+            AlunoGrad aluno5 = new AlunoGrad();
 
-    // estudante5.ide = dados.nextInt(3);
-    // estudante5.ide += 6;
-    // estudante5.ide += dados.nextFloat();
-    // ides[4] = estudante5.ide;
-    // }
-    // }
+            aluno5.setIde(dados.nextInt(3));
+            aluno5.setIde(aluno5.getIde() + 7);
+            aluno5.setIde(dados.nextFloat());
+            ides[4] = aluno5.getIde();
+        }
+    }
 
     @Override
     public void SelecaoIDE() {
@@ -102,7 +106,7 @@ public class AlunoGrad extends Aluno {
 
     @Override
     public void AuxilioAlimentacao() {
-        if (getRendaFamiliar() < 1192.40) {
+        if (getRendaFamiliar() < salarioMinimo) {
             System.out.println("Você faz está matriculado em quantas disciplinas?");
             dados = new Scanner(System.in);
             setQtdDisciplinas(dados.nextInt());
