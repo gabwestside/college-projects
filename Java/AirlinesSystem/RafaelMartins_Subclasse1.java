@@ -24,5 +24,4 @@ public class RafaelMartins_Subclasse1 extends RafaelMartins_Superclasse {
             System.out.println("Seu destino é" + getDestino() + "E sua compra foi da classe executiva");
         }
     }
-
 }

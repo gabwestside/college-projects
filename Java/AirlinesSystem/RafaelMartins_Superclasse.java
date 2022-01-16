@@ -1,6 +1,7 @@
 public abstract class RafaelMartins_Superclasse {
   private String nome, destino, cpf, partida, sobrenome;
   private int escolha;
+  private Long id;
 
   public RafaelMartins_Superclasse() {
   }

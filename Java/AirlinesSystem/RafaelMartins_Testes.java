@@ -50,9 +50,7 @@ public class RafaelMartins_Testes {
               + "\nSobrenome: " + client.getSobrenome()
               + "\nCPF: " + client.getCPF()
               + "\nDestino: " + client.getDestino()
-              + "\nLocal de Partida: " + client.getPartida(
-
-              ));
+              + "\nLocal de Partida: " + client.getPartida());
 
       if (client.getEscolha() == 1) {
         System.out.println("Compra de passagem ECONOMICA");
@@ -60,6 +58,5 @@ public class RafaelMartins_Testes {
         System.out.println("Compra de passagem EXECUTIVA");
       }
     }
-
   }
 }
