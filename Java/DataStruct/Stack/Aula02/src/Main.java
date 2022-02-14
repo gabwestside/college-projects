@@ -7,15 +7,39 @@ public class Main {
 		p1.push(36);
 		p1.push(72);
 
+		this.insertElemnent(p1, 55, 1);
 		this.print(p1);
 	}
 
 	public static void main(String[] args) {
 		Main main = new Main();
 	}
-
-	public void NoName() {
-
+	
+	// Incluir determinado elemento na minha pilha:
+	public void insertElemnent(Pilha p, int element, int pos) {
+		Pilha aux = new Pilha();
+		
+		// Verificando se a pilha está cheia
+		if(p.full() == true)
+			return;
+		
+		// Verificar se a posição é valida
+		if(pos < 0 || pos > p.size()) 
+			return;
+		
+		// Desemplihar os elementos até a posição pos
+		while(p.size() >= pos) {
+			aux.push(p.pop());
+		}
+		
+		// Empilhar o elemento recebido
+		p.push(element);
+		
+		// Empilhando os elementos novamente
+		while(p.full() == false) {
+			p.push(aux.pop());
+		}
+		
 	}
 
 	public void print(Pilha p) {

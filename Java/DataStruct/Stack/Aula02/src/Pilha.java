@@ -31,4 +31,15 @@ public class Pilha {
 		}
 		return false;
 	}
+	
+	public boolean full() {
+		if (this.size() == capacidade) {
+			return true;
+		}
+		return false;
+	}
+	
+	public int capacity() {
+		return capacidade;
+	}
 }
