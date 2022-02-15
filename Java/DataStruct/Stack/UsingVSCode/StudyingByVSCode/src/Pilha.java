@@ -38,4 +38,12 @@ public class Pilha {
             return false;
         }
     }
+
+    public boolean full() {
+        if (size() == capacidade) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
