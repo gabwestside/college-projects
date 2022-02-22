@@ -3,37 +3,64 @@ public class Main {
 	public Main() {
 		Pilha p1 = new Pilha();
 
-		p1.push(45);
+		p1.push(25);
 		p1.push(36);
 		p1.push(72);
-		p1.push(80);
+		p1.push(36);
+		p1.push(25);
 
-		this.removeElement(p1, 36);
-		this.print(p1);
+		System.out.println(this.isEquals(p1));
+		//this.isEquals(p1);
+		//this.print(p1);
 	}
 
 	public static void main(String[] args) {
 		Main main = new Main();
 	}
 
-	public void removeElement(Pilha p, int element) {
+	// Verificar se a pilha é um palindromo
+	public boolean isEquals(Pilha p) {
 		Pilha aux = new Pilha();
-
-		// Verificando se a pilha está cheia
+		
 		if (p.empty() == true)
-			return;
-
-		while (p.empty() == false) {
+			return false;
+		
+		while (p.size() > aux.size()) {
 			aux.push(p.pop());
 		}
 		
-		// Reempilhando a p a partir da aux
-		while (aux.empty() == false) {
-			if (element == aux.pop()) {
-				p.push(aux.pop());
-			}
+		if (aux.size() != p.size())
+			aux.pop();
+			
+		while (!p.empty()) {
+			if(p.pop() != aux.pop())
+				return false;
 		}
 
+		return true;
+	}
+
+	// Remover um elemento de determinada posição da pilha
+	public void removeElement(Pilha p, int pos) {
+		Pilha aux = new Pilha();
+
+		// Verificando se a pilha está cheia
+		if (p.empty())
+			return;
+
+		// Verificar se a posição é valida
+		if (pos < 0 || pos >= p.size())
+			return;
+
+		// Desemplihar os elementos até a posição pos
+		while (p.size() > pos) {
+			aux.push(p.pop());
+		}
+		
+		aux.pop();
+		
+		while (aux.empty() != true)
+			p.push(aux.pop());
 	}
 
 	public void replaceElement(Pilha p, int element, int pos) {
@@ -55,7 +82,7 @@ public class Main {
 		// Empilhar o elemento recebido
 		p.push(element);
 
-		// Rettirando o topo da pilha auxiliar
+		// Retirando o topo da pilha auxiliar
 		aux.pop();
 
 		// Reempilhando a p a partir da aux
