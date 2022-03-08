@@ -18,6 +18,19 @@ public class Main {
 		Main main = new Main();
 	}
 
+	public Pilha clonar(Pilha p){
+		Pilha aux = new Pilha();
+		Pilha clone = new Pilha();
+		
+		while(!p.empty())
+			aux.push(p.pop());
+		
+		while(!aux.empty())
+			p.push(aux.pop());
+		
+		return null;
+	}
+	
 	// Verificar se a pilha é um palindromo
 	public boolean isEquals(Pilha p) {
 		Pilha aux = new Pilha();
