@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Gabriel\Documents\GitClones\CollegeProjects\Java\DataStruct\Stack\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+2740675604.index
+2362107873.index
