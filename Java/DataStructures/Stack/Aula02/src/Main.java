@@ -3,16 +3,18 @@ public class Main {
 	public Main() {
 		Pilha p1 = new Pilha();
 
-		p1.push(25);
-		p1.push(36);
+		p1.push(20);
+		p1.push(33);
 		p1.push(72);
 		p1.push(36);
 		p1.push(25);
 
-		this.removeElementRefact(p1, 72);
+		this.removeElement(p1, 33);
 		// System.out.println(this.isEquals(p1));
 		// this.isEquals(p1);
-		// this.print(p1);
+		// 
+		
+		this.print(p1);
 	}
 
 	public static void main(String[] args) {
@@ -32,14 +34,14 @@ public class Main {
 		return null;
 	}
 	
-	public void removeElementRefact(Pilha p, int value) {
+	public void removeElement(Pilha p, int value) {
 		Pilha aux = new Pilha();
 		
 		while (!p.empty()) {
 			int t = p.pop();
 			
 			if (t != value) {
-				aux.push(p.pop());
+				aux.push(t);
 			}
 		}
 		
@@ -71,7 +73,7 @@ public class Main {
 	}
 
 	// Remover um elemento de determinada posição da pilha
-	public void removeElement(Pilha p, int pos) {
+	public void removeElementAtPos(Pilha p, int pos) {
 		Pilha aux = new Pilha();
 
 		// Verificando se a pilha está cheia
