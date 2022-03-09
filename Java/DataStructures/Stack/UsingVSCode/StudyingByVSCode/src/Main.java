@@ -2,32 +2,69 @@ public class Main {
     public Main() {
         Pilha p = new Pilha();
 
-        p.push(80);
+        p.push(100);
         p.push(72);
         p.push(75);
-        p.push(80);
+        p.push(89);
 
-        Pilha p1 = new Pilha();
+        // Pilha p1 = new Pilha();
 
-        p1.push(1);
-        p1.push(3);
-        p1.push(5);
+        // p1.push(1);
+        // p1.push(3);
+        // p1.push(5);
 
-        Pilha p2 = new Pilha();
+        // Pilha p2 = new Pilha();
 
-        p2.push(2);
-        p2.push(4);
-        p2.push(6);
+        // p2.push(2);
+        // p2.push(4);
+        // p2.push(6);
 
-        this.intertpoleStack(p1, p2);
+        // this.intertpoleStack(p1, p2);
 
-        System.out.println(this.isEquals(p));
+        // System.out.println(this.isEquals(p));
         // this.removeElement(p1, 36);
+
+        System.out.println(this.highestValue(p));
         this.print(p);
     }
 
     public static void main(String[] args) {
         Main main = new Main();
+    }
+
+    public int highestValue(Pilha p) {
+        int highest = p.top();
+        Pilha aux = new Pilha();
+
+        while (!p.empty()) {
+            int t = p.pop();
+
+            if (t > highest)
+                highest = t;
+
+            aux.push(t);
+        }
+
+        while (!aux.empty()) {
+            p.push(aux.pop());
+        }
+
+        return highest;
+    }
+
+    public int avgStackElements(Pilha p) {
+        int avg = p.top();
+        Pilha aux = new Pilha();
+
+        while (!p.empty()) {
+            // to implements
+        }
+
+        while (!aux.empty()) {
+            // to implements
+        }
+
+        return avg;
     }
 
     public Pilha intertpoleStack(Pilha p1, Pilha p2) {
@@ -40,8 +77,9 @@ public class Main {
             union.push(p1.pop());
             union.push(p2.pop());
         }
-
         System.out.println(union);
+
+        return union;
     }
 
     // Verificar se a pilha é um palindromo
