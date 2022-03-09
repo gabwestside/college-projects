@@ -9,9 +9,10 @@ public class Main {
 		p1.push(36);
 		p1.push(25);
 
-		System.out.println(this.isEquals(p1));
-		//this.isEquals(p1);
-		//this.print(p1);
+		this.removeElementRefact(p1, 72);
+		// System.out.println(this.isEquals(p1));
+		// this.isEquals(p1);
+		// this.print(p1);
 	}
 
 	public static void main(String[] args) {
@@ -29,6 +30,22 @@ public class Main {
 			p.push(aux.pop());
 		
 		return null;
+	}
+	
+	public void removeElementRefact(Pilha p, int value) {
+		Pilha aux = new Pilha();
+		
+		while (!p.empty()) {
+			int t = p.pop();
+			
+			if (t != value) {
+				aux.push(p.pop());
+			}
+		}
+		
+		while (!aux.empty()) {
+			p.push(aux.pop());
+		}
 	}
 	
 	// Verificar se a pilha é um palindromo
