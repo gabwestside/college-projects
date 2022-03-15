@@ -34,6 +34,17 @@ public class Main {
 		return null;
 	}
 	
+	public float avgStackElements(Pilha p) {
+		Pilha aux = new Pilha();
+		float avg = 0;
+		
+		while (!p.empty()) {
+			int t = p.pop();
+			
+		}
+		return avg;
+	}
+	
 	public void removeElement(Pilha p, int value) {
 		Pilha aux = new Pilha();
 		
