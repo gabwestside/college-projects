@@ -1,1 +1,1 @@
-# Projetinhos basicos e avançados desnvolvidos na minha graduação
+# Projetinhos basicos e avançados desenvolvidos na minha graduação
