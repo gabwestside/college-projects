@@ -1,35 +1,104 @@
+import javax.swing.border.EmptyBorder;
+
 public class Main {
     public Main() {
         Pilha p = new Pilha();
 
-        p.push(100);
-        p.push(72);
-        p.push(75);
-        p.push(89);
+        p.push(10);
+        p.push(2);
+        p.push(5);
+        p.push(9);
 
-        // Pilha p1 = new Pilha();
+        Pilha p1 = new Pilha();
 
-        // p1.push(1);
-        // p1.push(3);
-        // p1.push(5);
+        p1.push(1);
+        p1.push(2);
+        p1.push(3);
+        p1.push(4);
 
-        // Pilha p2 = new Pilha();
+        Pilha p2 = new Pilha();
 
-        // p2.push(2);
-        // p2.push(4);
-        // p2.push(6);
+        p2.push(5);
+        p2.push(6);
+        p2.push(7);
+        p2.push(8);
 
-        // this.intertpoleStack(p1, p2);
+        Pilha p3 = this.commonElements(p1, p2);
+
+        // print(p1);
+        // System.out.println();
+
+        // print(p2);
+        // System.out.println();
+
+        // print(p3);
+
+        Pilha pilha = this.intertpoleStack(p1, p2);
+
+        print(pilha);
 
         // System.out.println(this.isEquals(p));
+
         // this.removeElement(p1, 36);
 
-        System.out.println(this.highestValue(p));
-        this.print(p);
+        // System.out.println(this.highestValue(p));
+
+        // System.out.println(this.removeMinor(p));
+
+        // this.print(p);
     }
 
     public static void main(String[] args) {
         Main main = new Main();
+    }
+
+    public int removeMinor(Pilha p) {
+        Pilha aux = new Pilha();
+        int minor = p.top();
+
+        while (!p.empty()) {
+            int top = p.pop();
+
+            if (top < minor)
+                minor = top;
+
+            aux.push(top);
+        }
+
+        while (!aux.empty()) {
+            int top = aux.pop();
+
+            if (top != minor) {
+                p.push(top);
+            }
+        }
+
+        return minor;
+    }
+
+    public Pilha commonElements(Pilha p1, Pilha p2) {
+        Pilha p3 = new Pilha();
+        Pilha aux = new Pilha();
+        Pilha aux2 = new Pilha();
+
+        while (!p1.empty()) {
+            int top = p1.pop();
+            int top2 = p2.pop();
+
+            if (top == top2) {
+                p3.push(top);
+            }
+
+            aux.push(top);
+            aux2.push(top2);
+        }
+
+        while (!aux.empty()) {
+            p1.push(aux.pop());
+            p2.push(aux2.pop());
+        }
+
+        return p3;
     }
 
     public int highestValue(Pilha p) {
@@ -68,18 +137,32 @@ public class Main {
     }
 
     public Pilha intertpoleStack(Pilha p1, Pilha p2) {
-        Pilha union = new Pilha();
+        Pilha pilha = new Pilha();
+        Pilha aux = new Pilha();
+        Pilha aux2 = new Pilha();
 
-        if (!p1.empty() && !p2.empty())
-            return union;
+        while (!p1.empty()) {
+            int top = p1.pop();
+            int top2 = p2.pop();
 
-        while (!p1.empty() && !p2.empty()) {
-            union.push(p1.pop());
-            union.push(p2.pop());
+            aux.push(top);
+            aux2.push(top2);
         }
-        System.out.println(union);
 
-        return union;
+        while (!aux.empty()) {
+            int topAux = aux.pop();
+            int topAux2 = aux2.pop();
+
+            if (topAux < topAux2) {
+                pilha.push(topAux);
+                pilha.push(topAux2);
+            } else {
+                pilha.push(topAux2);
+                pilha.push(topAux);
+            }
+        }
+
+        return pilha;
     }
 
     // Verificar se a pilha é um palindromo
