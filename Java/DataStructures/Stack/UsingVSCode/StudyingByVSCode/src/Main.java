@@ -11,16 +11,16 @@ public class Main {
 
         Pilha p1 = new Pilha();
 
-        p1.push(1);
         p1.push(2);
         p1.push(3);
-        p1.push(4);
+        p1.push(6);
+        p1.push(7);
 
         Pilha p2 = new Pilha();
 
+        p2.push(1);
+        p2.push(4);
         p2.push(5);
-        p2.push(6);
-        p2.push(7);
         p2.push(8);
 
         Pilha p3 = this.commonElements(p1, p2);
