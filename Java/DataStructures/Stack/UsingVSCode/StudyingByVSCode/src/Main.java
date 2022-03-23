@@ -1,5 +1,3 @@
-import javax.swing.border.EmptyBorder;
-
 public class Main {
     public Main() {
         Pilha p = new Pilha();
@@ -213,15 +211,15 @@ public class Main {
     public void replaceElement(Pilha p, int element, int pos) {
         Pilha aux = new Pilha();
 
-        // Verificando se a pilha est� cheia
+        // Verificando se a pilha está cheia
         if (p.empty() == true)
             return;
 
-        // Verificar se a posi��o � valida
+        // Verificar se a posição é valida
         if (pos < 0 || pos >= p.size())
             return;
 
-        // Desemplihar os elementos at� a posi��o pos
+        // Desemplihar os elementos até a posião pos
         while (p.size() > pos) {
             aux.push(p.pop());
         }
@@ -242,15 +240,15 @@ public class Main {
     public void insertElemnent(Pilha p, int element, int pos) {
         Pilha aux = new Pilha();
 
-        // Verificando se a pilha est� cheia
+        // Verificando se a pilha está cheia
         if (p.full() == true)
             return;
 
-        // Verificar se a posi��o � valida
+        // Verificar se a posição é valida
         if (pos < 0 || pos > p.size())
             return;
 
-        // Desemplihar os elementos at� a posi��o pos
+        // Desemplihar os elementos até a posição pos
         while (p.size() > pos) {
             aux.push(p.pop());
         }
