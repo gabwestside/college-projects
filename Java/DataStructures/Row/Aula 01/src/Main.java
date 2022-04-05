@@ -10,12 +10,28 @@ public class Main {
 		r.enqueue(50);
 		r.enqueue(60);
 		
+		this.removeElement(r, 41);
 		r.print();
 	}
 	
 	public void removeDuplicateElem(Row row) {
 		Row aux = new Row();
 		int front = aux.front();
+	}
+	
+	public void removeElement(Row r, int elem) {
+		Row row = new Row();
+		
+		int lenght = row.size();
+		
+		for (int i = 0; i < lenght; i++) {
+			int front = row.dequeue();
+			
+			if (front != elem) {
+				row.enqueue(row.dequeue());;
+			}
+		}
+			
 	}
 	
 	public Row orderFusion(Row r1, Row r2, Row r3) {
