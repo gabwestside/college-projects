@@ -1,6 +1,25 @@
+:-dynamic homem/1.
+:-dynamic genitor/2.
+
+:-dynamic sala/6.
+
 start() :- write('Digite o valor de X:'),nl,
     	  read(X),nl,
     	  write(X),nl.    
+////
+
+camarote(jade).
+camarote(arthur).
+camarote(linn).
+camarote(scooby).
+pipoca(vini).
+pipoca(barbara).
+pipoca(eli).
+pipoca(eslo).
+
+union(C, P) :-
+    camarote(C), pipoca(P).
+
 ////
 
 mulher(pam).
@@ -89,22 +108,36 @@ capital(State, Capital) :- states(State, Capital).
 
 ////
 
-doa (a, a).
-doa (a, ab).
-doa (b, b).
-doa (b, ab).
-doa (ab, ab).
-doa (o, a).
-doa (o,b).
-doa (o, ab).
-doa (o, o).
+doa(a, a).
+doa(a, ab).
+doa(b, b).
+doa(b, ab).
+doa(ab, ab).
+doa(o, a).
+doa(o,b).
+doa(o, ab).
+doa(o, o).
 
-recebe (a, a).
-recebe (a, o) .
-recebe (b,b)
-recebe (b, o).
-recebe (ab, a).
-recebe (ab, b).
-recebe (ab, ab).
-recebe (ab, o).
-recebe (o,c).
+recebe(a, a).
+recebe(a, o) .
+recebe(b,b)
+recebe(b, o).
+recebe(ab, a).
+recebe(ab, b).
+recebe(ab, ab).
+recebe(ab, o).
+recebe(o,c).
+
+////
+
+%sala(num, dia,inicio,fim,discipl,tipo).
+sala(cp1103, seg, 10, 13, aaa, p).
+sala(cp2301, ter, 10, 11, aaa, t).
+sala(di011, sab, 12, 10, xxx, p). %com erro
+sala(cp3204, dom, 8, 10, zzz, p).
+sala(di011, sex, 14, 16, xxx, p).
+sala(cp204, sab, 15, 17, zzz, tp).
+sala(di011, qui, 14, 13, bbb, tp). %com erro
+sala(di104, qui, 9, 10, aaa, tp).
+sala(dial, dom, 14, 16, bbb, t).
+sala(cp1220, sab, 14, 18, sss, p).
