@@ -141,3 +141,23 @@ sala(di011, qui, 14, 13, bbb, tp). %com erro
 sala(di104, qui, 9, 10, aaa, tp).
 sala(dial, dom, 14, 16, bbb, t).
 sala(cp1220, sab, 14, 18, sss, p).
+
+////
+
+nota(joao, 5.0).
+nota(maria, 6.0).
+nota(joana, 8.0).
+nota(mariana, 9.0).
+nota(cleuza, 8.5).
+nota(jose, 6.5).
+nota(jaoquim, 4.5).
+nota(mara, 4.0).
+nota(maryI10.0).
+
+diario(X):- nota(X, Nota), (
+                              (Nota>=7, Nota<10, write('Aproval'));
+                (Nota>=5, Nota<6.9, write('Recovering'));
+                (Nota>=0, Nota<4.9, write('Reproving'))
+            ).
+imc(Peso,Altura) :- X is Peso/(Altura*Altura),
+    write('Seu IMC �: '),write(X).
