@@ -50,3 +50,61 @@ come(raposa, coelho).
 come(coelho, grama).
 come(veado, grama).
 come(urso, guaxinim).
+
+////
+
+
+aluno(joao, calculo).
+aluno(maria, calculo).
+aluno(joel, programacao).
+aluno(joel, estrutura).
+
+frequenta(joao, puc).
+frequenta(maria, puc).
+frequenta(joel, ufrj).
+
+professor(carlos, calculo).
+professor(ana_paula, estrutura).
+professor(pedro, programacao).
+
+funcionario(pedro, ufrj).
+funcionario(ana_paula, puc).
+funcionario(carlos, puc).
+
+are_students_for_teacher(A,X) :- professor(X,Materias), aluno(A,Materias).
+
+associated_students(Student,College) :- frequenta(Student,College).
+
+associated_teachers(Person,College) :- funcionario(Person,College).
+
+associates(Person,College) :- associated_students(Person,College);
+							   associated_teachers(Person,College).
+
+states(mg, 'Belo Horizonte').
+states(sp, 'São Paulo').
+states(rj,'Rio de Janeiro').
+states(es, 'Vitório').
+
+capital(State, Capital) :- states(State, Capital).
+
+////
+
+doa (a, a).
+doa (a, ab).
+doa (b, b).
+doa (b, ab).
+doa (ab, ab).
+doa (o, a).
+doa (o,b).
+doa (o, ab).
+doa (o, o).
+
+recebe (a, a).
+recebe (a, o) .
+recebe (b,b)
+recebe (b, o).
+recebe (ab, a).
+recebe (ab, b).
+recebe (ab, ab).
+recebe (ab, o).
+recebe (o,c).
