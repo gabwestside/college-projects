@@ -7,21 +7,27 @@ public class Main {
         p.push(5);
         p.push(9);
 
-        Pilha p1 = new Pilha();
+        // Pilha p1 = new Pilha();
 
-        p1.push(2);
-        p1.push(3);
-        p1.push(6);
-        p1.push(7);
+        // p1.push(2);
+        // p1.push(3);
+        // p1.push(6);
+        // p1.push(7);
 
-        Pilha p2 = new Pilha();
+        // Pilha p2 = new Pilha();
 
-        p2.push(1);
-        p2.push(4);
-        p2.push(5);
-        p2.push(8);
+        // p2.push(1);
+        // p2.push(4);
+        // p2.push(5);
+        // p2.push(8);
 
-        Pilha p3 = this.commonElements(p1, p2);
+        // Pilha p3 = this.commonElements(p1, p2);
+
+        this.print(p);
+
+        System.out.println(this.avgStack(p));
+
+        this.print(p);
 
         // print(p1);
         // System.out.println();
@@ -31,9 +37,9 @@ public class Main {
 
         // print(p3);
 
-        Pilha pilha = this.intertpoleStack(p1, p2);
+        // Pilha pilha = this.intertpoleStack(p1, p2);
 
-        print(pilha);
+        // print(pilha);
 
         // System.out.println(this.isEquals(p));
 
@@ -48,6 +54,41 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
+    }
+
+    public int avgStackElements(Pilha p) {
+        int avg = p.top();
+        Pilha aux = new Pilha();
+
+        while (!p.empty()) {
+            // to implements
+        }
+
+        while (!aux.empty()) {
+            // to implements
+        }
+
+        return avg;
+    }
+
+    public double avgStack(Pilha p) {
+        Pilha aux = new Pilha();
+
+        double avg = p.top();
+
+        while (!p.empty()) {
+            aux.push(p.pop());
+
+            avg += p.top();
+        }
+
+        avg = avg / aux.size();
+
+        while (!aux.empty()) {
+            p.push(aux.pop());
+        }
+
+        return avg;
     }
 
     public int removeMinor(Pilha p) {
@@ -117,21 +158,6 @@ public class Main {
         }
 
         return highest;
-    }
-
-    public int avgStackElements(Pilha p) {
-        int avg = p.top();
-        Pilha aux = new Pilha();
-
-        while (!p.empty()) {
-            // to implements
-        }
-
-        while (!aux.empty()) {
-            // to implements
-        }
-
-        return avg;
     }
 
     public Pilha intertpoleStack(Pilha p1, Pilha p2) {
@@ -273,5 +299,7 @@ public class Main {
             System.out.print(aux.top() + "-");
             p.push(aux.pop());
         }
+
+        System.out.println();
     }
 }
