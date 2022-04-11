@@ -1,6 +1,3 @@
-import javax.print.attribute.standard.RequestingUserName;
-import javax.swing.text.html.HTMLDocument.BlockElement;
-
 public class Row {
     private int capacity = 100;
 
