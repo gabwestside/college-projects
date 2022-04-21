@@ -45,37 +45,75 @@ INSERT INTO Cargo VALUES (5, 'Dev Senior');
 INSERT INTO Cargo VALUES (6, 'Tech Lead');
 INSERT INTO Cargo VALUES (7, 'Arquiteto');
 INSERT INTO Cargo VALUES (8, 'CTO');
+INSERT INTO fbuni..Cargo VALUES (9, 'Manager');
+INSERT INTO fbuni..Cargo VALUES (10, 'CEO');
 
-INSERT INTO Empregado VALUES (1, 'Gabriel', 4.000, 6, 1);
-INSERT INTO Empregado VALUES (2, 'Daniel', 10.000, 8, 3);
-INSERT INTO Empregado VALUES (3, 'Glauber', 2.000, 2, 4);
-INSERT INTO Empregado VALUES (4, 'Enivaldo', 1.400, 1, 1);
-INSERT INTO Empregado VALUES (5, 'Josue', 3.000, 1, 1);
-INSERT INTO Empregado VALUES (6, 'Enivaldo', 1.400, 1, 1);
-INSERT INTO Empregado VALUES (7, 'Enivaldo', 1.400, 1, 1);
+INSERT INTO fbuni..Empregado VALUES (1, 'Gabriel', 4.000, 6, 1);
+INSERT INTO fbuni..Empregado VALUES (2, 'Daniel', 10.000, 8, 3);
+INSERT INTO fbuni..Empregado VALUES (3, 'Glauber', 2.000, 2, 4);
+INSERT INTO fbuni..Empregado VALUES (4, 'Enivaldo', 1.400, 1, 1);
+INSERT INTO fbuni..Empregado VALUES (5, 'Josue', 3.000, 1, 1);
+INSERT INTO fbuni..Empregado VALUES (6, 'Chris', 4000, 7, 3);
+INSERT INTO fbuni..Empregado VALUES (7, 'Nicholas', 2000, 2, 1);
+INSERT INTO fbuni..Empregado VALUES (8, 'Erika', 1400, 1, 2);
 
-UPDATE Empregado 
-SET nome_empregado = 'Chris'
-WHERE cod_empregado = 6
-UPDATE Empregado SET nome_empregado = 'Estagiario'
-WHERE cod_empregado = 1
-UPDATE Empregado SET nome_empregado = 'Estagiario'
-WHERE cod_empregado = 1
-UPDATE Empregado SET nome_empregado = 'Estagiario'
-WHERE cod_empregado = 1
+select * from fbuni..Departamento order by 1 asc
+select * from fbuni..Cargo order by 1 asc
+select * from fbuni..Empregado order by salario desc
 
-select * from Empregado order by 1 asc
+UPDATE fbuni..Empregado 
+SET salario = 4000
+WHERE cod_empregado = 1
+UPDATE fbuni..Empregado 
+SET salario = 10000
+WHERE cod_empregado = 2
+UPDATE fbuni..Empregado 
+SET salario = 2000
+WHERE cod_empregado = 3
+UPDATE fbuni..Empregado 
+SET salario = 1400
+WHERE cod_empregado = 4
+UPDATE fbuni..Empregado 
+SET salario = 3000
+WHERE cod_empregado = 5
+update fbuni..Empregado
+set cod_cargo = 4
+where nome_empregado = 'Josue'
+
+
+select * from fbuni..Empregado order by 1 asc
 
 --1) Mostrar o nome de todos os empregados cujo salário está 
 --entre 3500 e 7800.
 select nome_empregado 
-from Empregado
+from fbuni..Empregado
 where salario >= 3.500
 and salario <= 7.800
 
 --2) Mostrar o nome do empregado, seu salário e o nome do 
 --departamento dos empregados cujo salário é inferior a 5000.
-select nome_empregado, salario, nome_depa 
-from Empregado
-where salario >= 3.500
-and salario <= 7.800
+select e.nome_empregado, e.salario, d.nome_departamento
+From fbuni..Empregado e, fbuni..Departamento d
+where e.cod_departamento = d.cod_departamento
+and e.salario > 5000
+
+--3) Mostrar o nome dos empregados com seus respectivos 
+--nomes de departamento e cargo.
+SELECT e.nome_empregado, d.nome_departamento, c.nome_cargo
+FROM fbuni..Empregado e, fbuni..Departamento d, fbuni..Cargo c
+where e.cod_departamento = d.cod_departamento
+and e.cod_cargo = c.cod_cargo
+
+--4) Mostrar o nome dos cargos que não empregados.
+SELECT nome_cargo
+FROM fbuni..Cargo c left JOIN fbuni..Empregado e 
+ON e.cod_cargo = c.cod_cargo
+and e.cod_empregado is null
+
+select c.nome_cargo
+from fbuni..Empregado e right join fbuni..Cargo c
+on e.cod_cargo = c.cod_cargo
+and e.cod_empregado is null
+order by nome_cargo asc
+
+select * from fbuni..Empregado
