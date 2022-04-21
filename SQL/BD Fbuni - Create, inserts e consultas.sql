@@ -56,6 +56,8 @@ INSERT INTO fbuni..Empregado VALUES (5, 'Josue', 3.000, 1, 1);
 INSERT INTO fbuni..Empregado VALUES (6, 'Chris', 4000, 7, 3);
 INSERT INTO fbuni..Empregado VALUES (7, 'Nicholas', 2000, 2, 1);
 INSERT INTO fbuni..Empregado VALUES (8, 'Erika', 1400, 1, 2);
+INSERT INTO fbuni..Empregado VALUES (9, 'Jonathan', 15000, 9, null);
+INSERT INTO fbuni..Empregado VALUES (10, 'Osmar', 1200, 4, 1);
 
 select * from fbuni..Departamento order by 1 asc
 select * from fbuni..Cargo order by 1 asc
@@ -80,6 +82,17 @@ update fbuni..Empregado
 set cod_cargo = 4
 where nome_empregado = 'Josue'
 
+update fbuni..Empregado
+set cod_cargo = 3
+where nome_empregado = 'Nicholas'
+
+update fbuni..Empregado
+set salario = 10000
+where nome_empregado = 'Osmar'
+
+update fbuni..Empregado
+set cod_cargo = 5, salario = 6000
+where nome_empregado = 'Daniel'
 
 select * from fbuni..Empregado order by 1 asc
 
@@ -110,10 +123,9 @@ FROM fbuni..Cargo c left JOIN fbuni..Empregado e
 ON e.cod_cargo = c.cod_cargo
 and e.cod_empregado is null
 
-select c.nome_cargo
+select c.nome_cargo, e.nome_empregado
 from fbuni..Empregado e right join fbuni..Cargo c
 on e.cod_cargo = c.cod_cargo
-and e.cod_empregado is null
-order by nome_cargo asc
+order by nome_empregado asc
 
-select * from fbuni..Empregado
+select * from fbuni..Empregado order by salario desc
