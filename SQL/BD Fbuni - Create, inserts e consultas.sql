@@ -118,10 +118,10 @@ where e.cod_departamento = d.cod_departamento
 and e.cod_cargo = c.cod_cargo
 
 --4) Mostrar o nome dos cargos que não empregados.
-SELECT nome_cargo
-FROM fbuni..Cargo c left JOIN fbuni..Empregado e 
+SELECT c.nome_cargo, e.nome_empregado
+FROM fbuni..Cargo c JOIN fbuni..Empregado e 
 ON e.cod_cargo = c.cod_cargo
-and e.cod_empregado is null
+and e.nome_empregado is null
 
 select c.nome_cargo, e.nome_empregado
 from fbuni..Empregado e right join fbuni..Cargo c
