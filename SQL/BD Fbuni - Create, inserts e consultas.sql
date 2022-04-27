@@ -118,8 +118,8 @@ where e.cod_departamento = d.cod_departamento
 and e.cod_cargo = c.cod_cargo
 
 --4) Mostrar o nome dos cargos que não empregados.
-SELECT c.nome_cargo, e.nome_empregado
-FROM fbuni..Cargo c JOIN fbuni..Empregado e 
+SELECT c.nome_cargo
+FROM fbuni..Cargo c LEFT JOIN fbuni..Empregado e 
 ON e.cod_cargo = c.cod_cargo
 and e.nome_empregado is null
 
@@ -129,3 +129,15 @@ on e.cod_cargo = c.cod_cargo
 order by nome_empregado asc
 
 select * from fbuni..Empregado order by salario desc
+
+--5) Mostrar o nome dos empregados que ganham mais de
+--R$ 6000 e que possuem o cargo de 'Dev Junior' no
+--departamento de 'Pix'
+
+select nome_empregado
+from fbuni..Empregado e, fbuni..Departamento d, fbuni..Cargo c
+where e.cod_departamento = d.cod_departamento
+and e.cod_cargo = c.cod_cargo
+and e.salario > 6000
+and e.cod_cargo = 4
+and e.cod_departamento = 1
