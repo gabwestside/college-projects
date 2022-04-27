@@ -100,8 +100,7 @@ select * from fbuni..Empregado order by 1 asc
 --entre 3500 e 7800.
 select nome_empregado 
 from fbuni..Empregado
-where salario >= 3.500
-and salario <= 7.800
+where salario between 3.500 and 7.800
 
 --2) Mostrar o nome do empregado, seu salário e o nome do 
 --departamento dos empregados cujo salário é inferior a 5000.
@@ -133,7 +132,6 @@ select * from fbuni..Empregado order by salario desc
 --5) Mostrar o nome dos empregados que ganham mais de
 --R$ 6000 e que possuem o cargo de 'Dev Junior' no
 --departamento de 'Pix'
-
 select nome_empregado
 from fbuni..Empregado e 
 inner join fbuni..Departamento d on d.cod_departamento = e.cod_departamento
