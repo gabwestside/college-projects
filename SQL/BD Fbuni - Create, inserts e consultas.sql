@@ -117,11 +117,11 @@ FROM fbuni..Empregado e, fbuni..Departamento d, fbuni..Cargo c
 where e.cod_departamento = d.cod_departamento
 and e.cod_cargo = c.cod_cargo
 
---4) Mostrar o nome dos cargos que não empregados.
+--4) Mostrar o nome dos cargos que não tem empregados.
 SELECT c.nome_cargo
-FROM fbuni..Cargo c LEFT JOIN fbuni..Empregado e 
-ON e.cod_cargo = c.cod_cargo
-and e.nome_empregado is null
+FROM fbuni..Cargo c left JOIN fbuni..Empregado e 
+ON c.cod_cargo = e.cod_cargo
+where e.cod_cargo is null
 
 select c.nome_cargo, e.nome_empregado
 from fbuni..Empregado e right join fbuni..Cargo c
@@ -135,9 +135,9 @@ select * from fbuni..Empregado order by salario desc
 --departamento de 'Pix'
 
 select nome_empregado
-from fbuni..Empregado e, fbuni..Departamento d, fbuni..Cargo c
-where e.cod_departamento = d.cod_departamento
-and e.cod_cargo = c.cod_cargo
-and e.salario > 6000
+from fbuni..Empregado e 
+inner join fbuni..Departamento d on d.cod_departamento = e.cod_departamento
+inner join fbuni..Cargo c on e.cod_cargo = c.cod_cargo
+where e.salario > 6000
 and e.cod_cargo = 4
 and e.cod_departamento = 1
