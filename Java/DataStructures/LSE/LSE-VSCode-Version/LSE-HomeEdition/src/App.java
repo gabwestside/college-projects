@@ -8,7 +8,7 @@ public class App {
 		lista.inserirNoFinal(32);
 		lista.printRecursivo(lista.head);
 		System.out.println();
-		lista.insertAtPos(0, 20);
+		lista.insertAtPos(1, 20);
 		lista.printIterativo();
 	}
 
