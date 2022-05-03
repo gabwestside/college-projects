@@ -2,10 +2,8 @@ public class LSE {
 	public Node head = null;
 
 	public void insertAtPos(int pos, int value) {
-
 		Node node = new Node(value);
 
-		// Se a lista está vazia, head será esse node nó
 		if (this.head == null)
 			this.head = node;
 
@@ -22,14 +20,13 @@ public class LSE {
 			node.next = aux.next;
 			aux.next = node;
 
-			// Percorrendo a lista até o último nó
 			while (node.next != null) {
 				node = node.next;
 			}
 		}
 	}
 
-	public int buscar(int pos) {
+	public int search(int pos) {
 		Node aux = head;
 
 		for (int i = 0; i < pos; i++) {
@@ -39,10 +36,7 @@ public class LSE {
 		return aux.info;
 	}
 
-	public void removerValor(int info) {
-		// Considere que n�o h� repeti��o de valor nos
-		// n�s
-
+	public void removeValue(int info) {
 		boolean flag = false;
 
 		// A info buscada � a do primeiro node (head)
@@ -68,7 +62,7 @@ public class LSE {
 			aux.next = aux.next.next;
 	}
 
-	public void removerAtPos(int pos) {
+	public void removeAtPos(int pos) {
 		Node aux = head;
 
 		if (head == null || pos < 0)
