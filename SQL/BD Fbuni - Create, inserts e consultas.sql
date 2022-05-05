@@ -139,3 +139,32 @@ inner join fbuni..Cargo c on e.cod_cargo = c.cod_cargo
 where e.salario > 6000
 and e.cod_cargo = 4
 and e.cod_departamento = 1
+
+select max(salario) from fbuni..Empregado
+
+-- Using functions
+
+select c.nome_cargo, count(e.cod_empregado) as qtd
+from fbuni..Empregado e right join fbuni..Cargo c
+on e.cod_cargo = c.cod_cargo
+group by c.nome_cargo
+order by qtd desc
+
+-- Using subconsult
+
+-- High salary
+select nome_empregado
+from fbuni..Empregado
+where salario = (select max(salario) from fbuni..Empregado)
+
+select d.nome_departamento, avg(salario) as media
+from fbuni..Empregado e, fbuni..Departamento d
+where e.cod_departamento = d.cod_departamento 
+group by d.nome_departamento
+having avg(salario) = (select max(media) from (SELECT avg(salario) AS media
+											   FROM fbuni..Departamento, fbuni..Empregado
+								               WHERE Empregado.Cod_Departamento =
+											   Departamento.Cod_Departamento
+											   GROUP BY Departamento.Nome_Departamento) 
+						as sub)
+
