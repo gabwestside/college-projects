@@ -1,6 +1,71 @@
 public class LSE {
 	public Node head = null;
 
+	public void switchPos(int pos) {
+		// if (pos == 0 || pos >= this.lenght()) return;
+		Node aux1, aux2;
+
+		if (pos == 0) {
+			aux1 = head;
+			head = aux1.next;
+			aux1.next = head.next;
+			head.next = aux1;
+
+			return;
+		} else {
+			aux1 = head;
+
+			for (int i = 0; i < pos - 1; i++) {
+				aux1 = aux1.next;
+			}
+			aux2 = aux1.next.next;
+
+			aux1.next.next = aux2.next;
+			aux2.next = aux1.next;
+			aux1.next = aux2;
+		}
+	}
+
+	public void removeAfterNode(int valor) {
+		if (head.info == valor) {
+			head = head.next;
+			return;
+		}
+
+		Node aux = head;
+
+		while (aux.info != valor && aux.next != null) {
+			aux = aux.next;
+		}
+
+		if (aux.info == valor) {
+			aux.next = aux.next.next;
+		}
+
+	}
+
+	public void insertAfterNode(int info, int valor) {
+		Node novo = new Node(valor);
+
+		if (this.head.info == info) {
+			novo.next = this.head.next;
+
+			this.head.next = novo;
+		} else {
+
+			Node aux = head;
+
+			while (aux.next != null) {
+				aux = aux.next;
+
+				if (aux.info == info) {
+					novo.next = aux.next;
+					aux.next = novo;
+				}
+			}
+		}
+	}
+
 	public void insertAtPos(int pos, int value) {
 		Node node = new Node(value);
 
@@ -24,6 +89,19 @@ public class LSE {
 				node = node.next;
 			}
 		}
+	}
+
+	public int lenght(LSE lse) {
+		Node aux = head;
+		int count = 0;
+
+		while (aux != null) {
+			aux = aux.next;
+
+			count++;
+		}
+
+		return count;
 	}
 
 	public int search(int pos) {
