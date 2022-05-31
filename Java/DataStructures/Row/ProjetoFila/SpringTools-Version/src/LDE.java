@@ -1,12 +1,66 @@
 public class LDE {
 	public Node head;
 	public Node tail;
-
+	
 	public LDE() {
 		head = new Node();
 		tail = new Node();
 		head.next = tail;
 		tail.prev = head;
+	}
+	
+	//Removendo de uma posi��o indicada
+	public void deleteAtPos(int pos) {
+		//Validando a posi��o e o tamanho
+		int tam = tamanho();
+		if(tam == 0 || pos < 0 || pos >= tam) return;
+		
+		//Posicionando o aux no n� a ser removido
+		Node aux = head.next;
+		for(int i = 0; i < pos; i++) {
+			aux = aux.next;
+		}
+
+		//Ajustando os ponteiros para remover o n� aux
+		aux.prev.next = aux.next;
+		aux.next.prev = aux.prev;
+	}
+	
+	//Removendo os n�s com a info recebida
+	public void deletePeloValor(int info) {
+		//Validando a posi��o e o tamanho
+		int tam = tamanho();
+		if(tam == 0) return;
+		
+		//Posicionando o aux no in�cio da lista  
+		Node aux = head.next;
+		
+		//Percorrendo a lista
+		while(aux != tail) {
+			if(aux.info == info) {
+				//Ajustando ponteiros para remover o n� aux
+				aux.prev.next = aux.next;
+				aux.next.prev = aux.prev;
+			}
+			aux = aux.next;
+		}
+	}
+	
+	//Calculando o tamanho (comprimento) da lista
+	public int tamanho() {
+		int tam = 0;
+		Node aux = head.next;
+		while(aux != tail) {
+			aux = aux.next;
+			tam++;
+		}
+		return tam;
+	}
+	
+	//Verificando se a lista est� vazia
+	public boolean ehVazia() {
+		if(head.next == tail) return true;
+		return false;
 	}
 
 	//Inserindo em uma posicao indicada
