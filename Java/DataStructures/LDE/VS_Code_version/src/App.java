@@ -41,12 +41,20 @@ public class App {
     }
 
     public void includeList(LDE l1, LDE l2, LDE l3) {
+        if (l1.ehVazia())
+            return;
+
         Node aux = l1.head.next;
 
         while (aux != l1.tail) {
             l2.insertNoFinal(aux.info);
+            aux = aux.next;
+
             l3.insertNoFinal(aux.next.info);
             aux = aux.next;
+
+            l1.head.next = aux;
+            aux.prev = l1.head;
         }
     }
 
