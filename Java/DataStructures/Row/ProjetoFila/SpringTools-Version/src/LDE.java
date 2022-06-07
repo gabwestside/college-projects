@@ -38,7 +38,7 @@ public class LDE {
 		//Percorrendo a lista
 		while(aux != tail) {
 			if(aux.info == info) {
-				//Ajustando ponteiros para remover o n� aux
+				//Ajustando ponteiros para remover o nó aux
 				aux.prev.next = aux.next;
 				aux.next.prev = aux.prev;
 			}
@@ -123,6 +123,12 @@ public class LDE {
 		tail.prev.next = novo;	//Depois do anterior do tail vem o novo
 		novo.prev = tail.prev;	//Antes do novo vem quem vinha antes do tail
 		tail.prev = novo;		//Antes da tail vem o novo
+	}
+	
+	public boolean isEmpty() {
+		if (head.next == tail)
+	      return true;
+	    return false;
 	}
 	
 	public int size() {

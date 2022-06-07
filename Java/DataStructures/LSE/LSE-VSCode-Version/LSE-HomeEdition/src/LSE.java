@@ -1,6 +1,17 @@
 public class LSE {
 	public Node head = null;
 
+	public void entireSwitch() {
+		int len = this.lenght();
+
+		Node aux1 = head;
+		Node aux2 = aux1;
+
+		for (int i = 0; i < len - 1; i++) {
+			aux2 = aux2.next;
+		}
+	}
+
 	public void switchPos(int pos) {
 		// if (pos == 0 || pos >= this.lenght()) return;
 		Node aux1, aux2;
@@ -91,7 +102,7 @@ public class LSE {
 		}
 	}
 
-	public int lenght(LSE lse) {
+	public int lenght() {
 		Node aux = head;
 		int count = 0;
 
