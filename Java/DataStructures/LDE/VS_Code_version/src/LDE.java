@@ -9,6 +9,29 @@ public class LDE {
     tail.prev = head;
   }
 
+  /* Elabore o método duplicarElemento(int x) que duplica todas as ocorrências de um
+  determinado valor x de uma LDE. Exemplo: valores iniciais da lista: 12-5-9-14-17.
+  Após a duplicação do x (14): 12-5-9-14-14-17 */ 
+  public void duplicateElement(int info) {
+    Node aux = this.head;
+
+		while(aux != null) {
+
+			if(aux.info == info) {
+
+				Node novo = new Node(info);
+				novo.next = aux.next;
+        novo.prev = aux.prev;
+        aux.next.prev = novo;
+        aux.next = novo;
+
+        aux = aux.next.next;
+			}else {
+        aux = aux.next;
+      }
+		}
+  }
+
   /*
    * (5) Elabore um m�todo para trocar de lugar dois n�s consecutivos que estejam
    * nas posi��es pos e pos+1, onde pos � recebido como argumento. O m�todo deve

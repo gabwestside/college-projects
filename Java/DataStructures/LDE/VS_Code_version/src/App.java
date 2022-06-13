@@ -1,61 +1,37 @@
 public class App {
     public App() {
-        LDE lista = new LDE();
-        lista.insertNoFinal(12);
-        lista.insertNoFinal(15);
-        lista.insertNoFinal(18);
-        lista.insertNoFinal(14);
-        lista.insertNoFinal(17);
-        lista.insertNoFinal(13);
-        lista.insertNoFinal(10);
+        LDE list = new LDE();
+        list.insertNoFinal(12);
+        list.insertNoFinal(15);
+        list.insertNoFinal(18);
+        list.insertNoFinal(14);
+        list.insertNoFinal(17);
+        list.insertNoFinal(13);
+        list.insertNoFinal(10);
         // lista.print();
         // lista.bubbleSort();
         // lista.trocarConsecutivos(2);
-        lista.print();
-        System.out.println();
+        list.print();
 
-        LDE l2 = new LDE();
-        LDE l3 = new LDE();
+        LSE lse = new LSE();
+        lse.inserirNoFinal(12);
+        lse.inserirNoFinal(14);
+        lse.inserirNoFinal(17);
+        lse.inserirNoFinal(19);    
+        lse.inserirNoFinal(20);
+        lse.inserirNoFinal(29);  
+        
+        lse.printIterativo();
 
-        this.includeList(lista, l2, l3);
+        System.out.println("Duplicate a node:");
 
-        l2.print();
-        l3.print();
-        /*
-         * LDE l1 = new LDE();
-         * l1.insertNoFinal(16);
-         * l1.insertNoFinal(19);
-         * l1.insertNoFinal(20);
-         * l1.insertNoFinal(18);
-         * l1.insertNoFinal(13);
-         * LDE l2 = new LDE();
-         * l2.insertNoFinal(17);
-         * l2.insertNoFinal(22);
-         * l2.insertNoFinal(16);
-         * l2.insertNoFinal(21);
-         * LDE l3 = new LDE();
-         * //this.fundirListas(l1, l2, l3);
-         * this.parImpar(l1, l2, l3);
-         * l3.print();
-         */
-    }
+        list.duplicateElement(10);
+        list.print();
 
-    public void includeList(LDE l1, LDE l2, LDE l3) {
-        if (l1.ehVazia())
-            return;
+        System.out.println("Switch a node:");
 
-        Node aux = l1.head.next;
-
-        while (aux != l1.tail) {
-            l2.insertNoFinal(aux.info);
-            aux = aux.next;
-
-            l3.insertNoFinal(aux.next.info);
-            aux = aux.next;
-
-            l1.head.next = aux;
-            aux.prev = l1.head;
-        }
+        lse.switchPosition(14);
+        lse.printIterativo();
     }
 
     // Elaborar um m�todo que receba duas LDEs (l1 e l2) e a partir delas construa
