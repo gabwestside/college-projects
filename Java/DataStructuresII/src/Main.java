@@ -10,6 +10,9 @@ public class Main {
 		t2.root.left.right = new Node(11);
 		t2.root.right = new Node(8);
 		
+		BinaryTree t3 = new BinaryTree(12);
+		t3.root.right = new Node(15);
+		
 		System.out.println(mirrored(t1.root, t2.root));
 	}
 	
@@ -25,6 +28,13 @@ public class Main {
 			mirrored(root1.right, root2.left))
 			return true;
 		
+		return false;
+	}
+	
+	public static boolean isOrderTree(Node root) {
+		if (root.left == null)
+			return true;
+			
 		return false;
 	}
 }
