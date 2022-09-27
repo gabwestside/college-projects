@@ -76,7 +76,7 @@ public class BinaryTree {
 		return rootTree;
 	}
 
-	Node remove(int value, Node root) {
+	Node remove(int value) {
 		Node node = buscar(root, value);
 
 		if (node.right == null && node.left == null) {
@@ -108,7 +108,7 @@ public class BinaryTree {
 		}
 		
 		// needs to implements, to finish this exercise
-		remove(value, root);	
+		remove(value);	
 		
 		return node;
 	}
