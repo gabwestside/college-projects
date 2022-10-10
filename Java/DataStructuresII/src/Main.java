@@ -37,4 +37,14 @@ public class Main {
 			
 		return false;
 	}
+
+	public static boolean isEvenOrOdd(Node root) {
+		if (root == null) return true;
+			
+		if (root.left == null && root.right == null) return true;
+		
+		if (root.left == null && isEvenOrOdd(root.right)) return true;
+
+		return false;
+	}
 }
