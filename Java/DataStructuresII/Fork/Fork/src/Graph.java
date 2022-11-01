@@ -19,6 +19,7 @@ public class Graph {
 	}
 
 	public void searchWidth() {
+		ArrayList<Vertex> checkedVertices = new ArrayList<Vertex>();
 		PriorityQueue queue = new PriorityQueue();
 		queue.add(this.vertices.get(1));
 
