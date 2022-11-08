@@ -6,20 +6,35 @@ public class Main {
 		Vertex v2 = new Vertex(2);
 		Vertex v3 = new Vertex(3);
 		Vertex v4 = new Vertex(4);
-		
+
 		Graph graph = new Graph();
-		
+
 		graph.addVertex(v1);
 		graph.addVertex(v2);
 		graph.addVertex(v3);
 		graph.addVertex(v4);
-		
+
 		graph.addEdge(5, v1, v2);
 		graph.addEdge(9, v1, v3);
 		graph.addEdge(8, v1, v4);
 		graph.addEdge(10, v3, v4);
-		
-		System.out.println(graph.vertices.get(0).neighborEdges.get(0).info);
+
+		System.out.println("searchWidth");
+		System.out.print("v1: ");
+		graph.searchWidth(v1);
+		System.out.println();
+		System.out.print("v2: ");
+		graph.searchWidth(v2);
+		System.out.println();
+		System.out.print("v3: ");
+		graph.searchWidth(v3);
+		System.out.println();
+		System.out.print("v4: ");
+		graph.searchWidth(v4);
+		System.out.println();
+
+		System.out.println("searchDepth");
+		graph.searchDepth(v1);
 	}
 
 }

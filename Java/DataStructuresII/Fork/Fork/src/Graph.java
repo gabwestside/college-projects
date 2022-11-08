@@ -1,5 +1,7 @@
 import java.util.ArrayList;
-import java.util.PriorityQueue;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Graph {
 	public ArrayList<Vertex> vertices = new ArrayList<Vertex>();
@@ -18,16 +20,55 @@ public class Graph {
 		this.edges.add(newEdge);
 	}
 
-	public void searchWidth() {
+	public void searchWidth(Vertex randomVertex) {
+		/*
+		 * checkedVertices => marcados
+		 */
 		ArrayList<Vertex> checkedVertices = new ArrayList<Vertex>();
-		PriorityQueue queue = new PriorityQueue();
-		queue.add(this.vertices.get(1));
+		/* queue => q */
+		Queue<Vertex> queue = new LinkedList<Vertex>();
+		/* randomVertex => o */
+		queue.add(randomVertex);
+		checkedVertices.add(randomVertex);
 
 		while (queue.isEmpty() == false) {
-			Vertex visitedVertex = (Vertex)queue.remove();
-			System.out.println(visitedVertex.info);
+			Vertex visitedVertex = queue.remove();
+			System.out.print(visitedVertex.info + "-");
+
 			for (int i = 0; i < visitedVertex.neighborEdges.size(); i++) {
-				queue.add(visitedVertex.neighborEdges.get(i));
+				/*
+				 * neighbour => w
+				 */
+				Vertex neighbour = visitedVertex.neighborEdges.get(i);
+
+				if (!checkedVertices.contains(neighbour)) {
+					queue.add(neighbour);
+					checkedVertices.add(neighbour);
+				}
+			}
+		}
+	}
+
+	public void searchDepth(Vertex randomVertex) {
+		ArrayList<Vertex> checkedVertices = new ArrayList<Vertex>();
+		Stack<Vertex> stack = new Stack<Vertex>();
+		stack.push(randomVertex);
+		checkedVertices.add(randomVertex);
+
+		while (stack.isEmpty() == false) {
+			Vertex visitedVertex = stack.pop();
+			System.out.print(visitedVertex.info + "-");
+
+			for (int i = 0; i < visitedVertex.neighborEdges.size(); i++) {
+				Vertex neighbour = visitedVertex.neighborEdges.get(i);
+				
+				if (!checkedVertices.contains(neighbour)) {
+					stack.push(neighbour);
+					checkedVertices.add(neighbour);
+				} 
+				else {
+					visitedVertex = stack.pop();
+				}
 			}
 		}
 	}
