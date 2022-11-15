@@ -56,20 +56,57 @@ public class Graph {
 		checkedVertices.add(randomVertex);
 
 		while (stack.isEmpty() == false) {
-			Vertex visitedVertex = stack.pop();
+			Vertex visitedVertex = stack.peek();
 			System.out.print(visitedVertex.info + "-");
 
 			for (int i = 0; i < visitedVertex.neighborEdges.size(); i++) {
 				Vertex neighbour = visitedVertex.neighborEdges.get(i);
-				
-				if (!checkedVertices.contains(neighbour)) {
-					stack.push(neighbour);
+
+				if (checkedVertices.contains(neighbour)) {
 					checkedVertices.add(neighbour);
-				} 
-				else {
+					stack.push(neighbour);
+				} else {
 					visitedVertex = stack.pop();
 				}
 			}
+		}
+	}
+
+	public void buscaProfundidade(Vertex o) {
+		ArrayList<Vertex> marcados = new ArrayList<Vertex>();
+		Stack<Vertex> pilha = new Stack<Vertex>();
+
+		pilha.push(o);
+		marcados.add(o);
+
+		boolean flag = false;
+
+		while (pilha.isEmpty() == false) {
+			Vertex v = pilha.peek();
+			Vertex w = null;
+
+			for (int i = 0; i < v.neighborEdges.size(); i++) {
+				flag = false;
+				w = v.neighborEdges.get(i);
+
+				if (!marcados.contains(w)) {
+					flag = true;
+					break;
+				}
+			}
+
+			if (flag) {
+				marcados.add(w);
+				pilha.push(w);
+			} else {
+				pilha.pop();
+			}
+
+		}
+		
+		for (int i = 0; i < marcados.size(); i++) {
+			Vertex v = marcados.remove(i);
+			System.out.println(v.info);
 		}
 	}
 }

@@ -19,22 +19,11 @@ public class Main {
 		graph.addEdge(8, v1, v4);
 		graph.addEdge(10, v3, v4);
 
-		System.out.println("searchWidth");
-		System.out.print("v1: ");
-		graph.searchWidth(v1);
-		System.out.println();
-		System.out.print("v2: ");
-		graph.searchWidth(v2);
-		System.out.println();
-		System.out.print("v3: ");
-		graph.searchWidth(v3);
-		System.out.println();
-		System.out.print("v4: ");
-		graph.searchWidth(v4);
-		System.out.println();
-
+		
 		System.out.println("searchDepth");
-		graph.searchDepth(v1);
+		graph.buscaProfundidade(v1);
+		
+		
 	}
 
 }
