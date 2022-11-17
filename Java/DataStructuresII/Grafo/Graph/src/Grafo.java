@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class Grafo {
 	public ArrayList<Vertice> vertices = new ArrayList<Vertice>();
@@ -16,16 +18,23 @@ public class Grafo {
 		this.arestas.add(novaAresta);
 	}
 
-	public void buscaLargura() {
+	public void buscaLargura(Vertice o) {
 		ArrayList<Vertice> marcados = new ArrayList<Vertice>();
-		PriorityQueue q = new PriorityQueue();
-		q.add(this.vertices.get(1));
+		Queue<Vertice> queue = new LinkedList<Vertice>();
+		queue.add(o);
+		marcados.add(o);
 
-		while (q.isEmpty() == false) {
-			Vertice v = (Vertice) q.remove();
-			System.out.println(v.info);
-			for (int i = 0; i < v.adjacentes.size(); i++) {
-				q.add(v.adjacentes.get(i));
+		while (queue.isEmpty() == false) {
+			Vertice vertice = queue.remove();
+			System.out.print(vertice.info + "-");
+
+			for (int i = 0; i < vertice.adjacentes.size(); i++) {
+				Vertice w = vertice.adjacentes.get(i);
+
+				if (!marcados.contains(w)) {
+					queue.add(w);
+					marcados.add(w);
+				}
 			}
 		}
 
