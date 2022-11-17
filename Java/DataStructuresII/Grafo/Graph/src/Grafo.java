@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Grafo {
 	public ArrayList<Vertice> vertices = new ArrayList<Vertice>();
@@ -35,6 +36,41 @@ public class Grafo {
 					queue.add(w);
 					marcados.add(w);
 				}
+			}
+
+		}
+
+	}
+
+	public void buscaProfundidade(Vertice o) {
+		ArrayList<Vertice> marcados = new ArrayList<Vertice>();
+		Stack<Vertice> stack = new Stack<Vertice>();
+
+		stack.add(o);
+		marcados.add(o);
+
+		boolean flag = false;
+
+		while (stack.isEmpty() == false) {
+			Vertice vertice = stack.peek();
+			Vertice w = null;
+
+			for (int i = 0; i < vertice.adjacentes.size(); i++) {
+				flag = false;
+				w = vertice.adjacentes.get(i);
+
+				if (!marcados.contains(w)) {
+					flag = true;
+					break;
+				}
+			}
+
+			if (flag) {
+				marcados.add(w);
+				stack.push(w);
+				System.out.print(w.info + "-");
+			} else {
+				stack.pop();
 			}
 		}
 
