@@ -3,5 +3,5 @@
 Para iniciá-lo, siga os passos abaixo:
 ```bash
 # Clonar o repositorio
-$ git clone https://github.com/gabwestside/collegepojects.git
+$ git clone https://github.com/gabwestside/CollegeProjects.git
 ```
