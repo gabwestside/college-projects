@@ -59,6 +59,6 @@ public class Main {
 		grafo.adicionarAresta(10, v3, v4);
 
 		System.out.println("busca em profundidade:");
-		grafo.buscaProfundidade(v1);// buscaLargura(v1);
+		grafo.buscaProfundidade(v1);
 	}
 }

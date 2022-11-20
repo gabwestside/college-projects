@@ -66,10 +66,11 @@ public class Grafo {
 
 			if (flag) {
 				marcados.add(w);
-				System.out.println(w.info);
 				stack.push(w);
+				System.out.print(w.info + "-");
 			} else {
 				stack.pop();
+				// System.out.print(stack.pop().info + "-");
 			}
 
 		}
