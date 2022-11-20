@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -67,12 +66,12 @@ public class Grafo {
 
 			if (flag) {
 				marcados.add(w);
+				System.out.println(w.info);
 				stack.push(w);
-				System.out.print(w.info + "-");
 			} else {
 				stack.pop();
 			}
-		}
 
+		}
 	}
 }
