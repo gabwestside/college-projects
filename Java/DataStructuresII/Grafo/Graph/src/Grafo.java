@@ -51,7 +51,7 @@ public class Grafo {
 		boolean flag = false;
 
 		while (stack.isEmpty() == false) {
-			Vertice vertice = stack.peek();
+			Vertice vertice = (Vertice) stack.peek();
 			Vertice w = null;
 
 			for (int i = 0; i < vertice.adjacentes.size(); i++) {
@@ -67,12 +67,14 @@ public class Grafo {
 			if (flag) {
 				marcados.add(w);
 				stack.push(w);
-				System.out.print(w.info + "-");
 			} else {
 				stack.pop();
-				// System.out.print(stack.pop().info + "-");
 			}
+		}
 
+		for (int i = 0; i < marcados.size(); i++) {
+			Vertice v = marcados.get(i);
+			System.out.print(v.info + "-");
 		}
 	}
 }

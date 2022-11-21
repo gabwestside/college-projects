@@ -58,7 +58,21 @@ public class Main {
 		grafo.adicionarAresta(8, v1, v4);
 		grafo.adicionarAresta(10, v3, v4);
 
-		System.out.println("busca em profundidade:");
+		System.out.println("--busca em profundidade--");
+		System.out.println("v1:");
 		grafo.buscaProfundidade(v1);
+		System.out.println();
+
+		System.out.println("v2:");
+		grafo.buscaProfundidade(v2);
+		System.out.println();
+
+		System.out.println("v3:");
+		grafo.buscaProfundidade(v3);
+		System.out.println();
+
+		System.out.println("v4:");
+		grafo.buscaProfundidade(v4);
+		System.out.println();
 	}
 }
