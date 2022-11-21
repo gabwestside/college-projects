@@ -1,7 +1,7 @@
-# Projetinhos basicos e avançados desenvolvidos na minha graduação
+# Basic and advanced projects developed in my graduation
 
-Para iniciá-lo, siga os passos abaixo:
+To start it, follow the steps below:
 ```bash
-# Clonar o repositorio
-$ git clone https://github.com/gabwestside/CollegeProjects.git
+# Clone the repository
+$ git clone https://github.com/gabwestside/college-projects.git
 ```
