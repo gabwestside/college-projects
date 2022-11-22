@@ -36,9 +36,7 @@ public class Grafo {
 					marcados.add(w);
 				}
 			}
-
 		}
-
 	}
 
 	public void buscaProfundidade(Vertice o) {
@@ -51,7 +49,7 @@ public class Grafo {
 		boolean flag = false;
 
 		while (stack.isEmpty() == false) {
-			Vertice vertice = (Vertice) stack.peek();
+			Vertice vertice = stack.peek();
 			Vertice w = null;
 
 			for (int i = 0; i < vertice.adjacentes.size(); i++) {
